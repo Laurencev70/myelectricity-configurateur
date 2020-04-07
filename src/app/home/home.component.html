@@ -1,0 +1,39 @@
+<div class="container-fluid">
+
+    <img src="/assets/images/maison_my_electricity.png" alt="House" width="100%">
+
+    <button type="button" class="btn top-left" data-toggle="modal" data-target="#exampleModalCenter">
+        <h1>{{ title }}</h1>
+    </button>
+
+    <h6 class="top-right" id="assistance">{{ help }}</h6>
+
+    
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">{{ modaltitle }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-justify">
+          <p>{{ content }}</p>
+          <p>{{ content1 }}</p>
+          <p>{{ content2 }}</p>
+          <p>{{ content3 }}</p>
+          <h6 class="text-right">{{ modalgreeting }}</h6>
+        </div>
+        <div class="modal-footer">
+          <a routerLink='location'><button type="button" class="btn btn-secondary" data-dismiss="modal">Accédez à notre configurateur</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
