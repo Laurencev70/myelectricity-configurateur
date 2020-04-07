@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<form>
+    <div class="form-group mt-3 ml-3">
+        <h3>Calculez votre consommation énergétique :</h3>
+    </div>
+
+    <div class="form-row ml-3 mt-5">
+        <div class="form-group">
+            <label for="formGroupExampleInput2" required>Vous connaissez votre consommation annuelle
+            </label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ex : 6000 Kwh">
+        </div>
+    </div>
+
+    <div class="mt-5 ml-3">Vous ne connaissez pas votre consommation annuelle : Merci de sélectionner dans le tableau ci-dessous les éléments correspondant à votre situation
+    </div>
+
+    <div class="card mt-2 ml-3" style="width: 35rem; height: 15rem;">
+        <div class="card-body">
+          
+          <p class="card-text">Tableau</p>
+         
+        </div>
+    </div>
+
+    <div class="mt-5 ml-3">
+        <div>Estimation de votre consommation : {{ 6000 }} Kwh</div>
+    </div>
+
+
+ 
+
+
+    <a routerLink='../inscription'><button type="submit" class="btn btn-light ml-3 mt-5">Valider</button></a>
+    
+
+</form>
+
+<router-outlet></router-outlet>
