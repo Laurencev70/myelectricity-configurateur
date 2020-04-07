@@ -1,0 +1,89 @@
+<app-header></app-header>
+
+
+<div class="form-group mt-5 ml-3">
+    <h3>Choississez vos panneaux solaires :</h3>
+</div>
+
+<form>
+
+    <div class="col mt-3 ml-3">
+        <span>Positionnement</span>
+        <div class="form-group row mt-3">
+            <div class="radio col-4">
+                <input (click)="setPositionHor()" type="radio" ngModel name="position" value="horizontal">
+                <label class="ml-3">Horizontal</label>
+            </div>
+            <div class="radio col-4">
+                <input (click)="setPositionVer()"type="radio" ngModel name="position" value="vertical">
+                <label class="ml-3">Vertical</label>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="row">
+    <div class="col-4 ml-3 mt-5">
+        <span>Nombre de lignes</span>
+        <div class="stepper-input stepper__input">
+            <button class="toggle-less" (click)="toggleLessLine()">
+                <img src="assets/images/minus.svg" [attr.alt]="ariaLabelLess" />
+            </button>
+            <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite"
+                aria-relevant="all">
+                {{renderedValueLine}}
+            </div>
+            <button class="toggle-more" (click)="toggleMoreLine()">
+                <img src="assets/images/plus.svg" [attr.alt]="ariaLabelMore" />
+            </button>
+        </div>
+    </div>
+    <div class="col-4 ml-3 mt-5">
+        <span>Nombre de colonnes</span>
+        <div class="stepper-input stepper__input">
+            <button class="toggle-less" (click)="toggleLessCol()">
+                <img src="assets/images/minus.svg" [attr.alt]="ariaLabelLess" />
+            </button>
+            <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite"
+                aria-relevant="all">
+                {{renderedValueCol}}
+            </div>
+            <button class="toggle-more" (click)="toggleMoreCol()">
+                <img src="assets/images/plus.svg" [attr.alt]="ariaLabelMore" />
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="mt-5 ml-3">
+        <div id="toit"></div>
+        <div [ngClass]="position"></div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="mt-5 ml-3">
+        <span class="text-center">Nombre de panneaux :</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="mt-5 ml-3">
+        <span class="text-center">Puissance totale :</span>
+    </div>
+</div>
+
+
+<div class="text-center">
+    <a routerLink='../consommation'><button type="submit" class="btn btn-light">Valider</button></a>
+</div>
+
+
+
+<router-outlet></router-outlet>

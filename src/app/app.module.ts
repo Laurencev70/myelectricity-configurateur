@@ -11,6 +11,7 @@ import { LocationComponent } from './location/location.component';
 import { ToitComponent } from './toit/toit.component';
 import { PenteComponent } from './toit/pente.component';
 import { PlatComponent } from './toit/plat.component';
+import { CalepinageComponent } from './calepinage/calepinage.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { PlatComponent } from './toit/plat.component';
     ToitComponent,
     PenteComponent,
     PlatComponent,
+    CalepinageComponent,
   ],
   imports: [
     BrowserModule,
