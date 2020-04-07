@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+
+<div class="form-group mt-3 ml-3">
+    <h3>Formulaire d'inscription :</h3>
+</div>
+
+<div class="mt-5 ml-3">Veuillez remplir ce formulaire pour pouvoir accéder au résultat du configurateur photovoltaïque :
+</div>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="form-row">
+        <div class="form-group col mt-3 ml-3">
+            <label>Votre nom</label>
+            <input type="text" ngModel name="lastName" id="lastName" class="form-control" required #lName="ngModel">
+            <div *ngIf="lName.invalid">
+                <div style="color:red;">{{ Message }}</div>
+            </div>
+        </div>
+        <div class="form-group col mt-3 ml-3">
+            <label>Votre prénom</label>
+            <input type="text" ngModel name="firstName" id="firstName" class="form-control" required #fName="ngModel">
+            <div *ngIf="fName.invalid">
+                <div style="color:red;">{{ Message }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col mt-3 ml-3">
+            <label>Votre adresse email</label>
+            <input type="text" ngModel name="email" id="email" class="form-control" required #emailName="ngModel">
+            <div *ngIf="emailName.invalid">
+                <div style="color: red;">{{ Message }}</div>
+            </div>
+            <div *ngIf="emailName.errors?.email">
+                <div>Le format de votre email n'est pas valide.</div>
+            </div>
+        </div>
+        <div class="form-group col mt-3 ml-3">
+            <label>Votre mot de passe</label>
+            <input type="password" ngModel name="password" id="password" class="form-control" minlength="6" placeholder="Minimum 6 caractères" required #pwdName="ngModel">
+            <div *ngIf="pwdName.errors?.minlength">
+                Votre mot de passe doit contenir au moins 6 caractères.
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a routerLink="../dashboard"><button class="btn btn-light" [disabled]="Submitted">Valider</button></a>
+        <button class="btn btn-light ml-2" type="button" (click)="resetUserForm(userForm)">Annuler</button>
+    </div>
+</form>
+
+<router-outlet></router-outlet>
