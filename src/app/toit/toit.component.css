@@ -1,0 +1,14 @@
+/* Placement boutons sur toits */
+.pente {
+    position: absolute;
+    top: 30%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+  }
+
+.plat {
+    position: absolute;
+    top: 39%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+  }

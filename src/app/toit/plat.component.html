@@ -1,0 +1,163 @@
+<div class="form-group mt-3 ml-3">
+    <h3 class="text-center title">Démarrez votre simulation</h3>
+</div>
+
+<form #infoTech="ngForm" (ngSubmit)="onSubmit(infoTech)">
+
+    <div class="col mt-3 ml-3">
+        <span class="question">Quelles sont les dimensions de votre toit plat ?</span>
+        <div class="form-group row">
+            <label for="longueur" class="col-sm-2 col-form-label">Longueur </label>
+            <div class="col-sm-10">
+                <input type="number" ngModel name="longueur" id="longueur" class="form-control mt-2" placeholder="Ex: 15m" required
+                    #longueur="ngModel">
+                <div *ngIf="longueur.invalid">
+                    <div style="color:red;">{{ message }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="largeur" class="col-sm-2 col-form-label">Largeur</label>
+            <div class="col-sm-10">
+                <input type="number" ngModel name="largeur" id="largeur" class="form-control" placeholder="Ex: 6m" required
+                    #largeur="ngModel">
+                <div *ngIf="largeur.invalid">
+                    <div style="color:red;">{{ message }}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col mt-3 ml-3">
+        <span class="question">Quelle est l'orientation du toit ?</span>
+        <div class="form-group row">
+            <div class="radio col-3">
+                <input type="radio" ngModel name="orientation" value="sud">
+                <label class="ml-3">Sud</label>
+            </div>
+            <div class="radio col-3">
+
+                <input type="radio" ngModel name="orientation" value="est">
+                <label class="ml-3">Est</label>
+            </div>
+            <div class="radio col-3">
+
+                <input type="radio" ngModel name="orientation" value="ouest">
+                <label class="ml-3">Ouest</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col mt-3 ml-3">
+        <span class="question">De quel type de matériaux s'agit-il ?</span>
+        <div class="form-group row">
+            <div class="radio col-3">
+                <input type="radio" ngModel name="materiaux" value="tuiles">
+                <label class="ml-3">Tuiles</label>
+            </div>
+            <div class="radio col-3">
+                <input type="radio" ngModel name="materiaux" value="ardoise">
+                <label class="ml-3">Ardoise</label>
+            </div>
+            <div class="radio col-3">
+                <input type="radio" ngModel name="materiaux" value="bacacier">
+                <label class="ml-3">Bac acier</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col mt-3 ml-3">
+        <span class="question">Combien d'étage à votre maison ?</span>
+        <div class="form-group row">
+            <div class="radio col-4">
+                <input type="radio" ngModel name="etage" value="pleinpied">
+                <label class="ml-3">Plein pied</label>
+            </div>
+            <div class="radio col-4">
+                <input type="radio" ngModel name="etage" value="unoudeuxetages">
+                <label class="ml-3">Un ou deux étages</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col mt-3 ml-3">
+        <span class="question">Quelle est la distance de câble entre :</span>
+        <div class="form-group row">
+
+            <label for="customRange1" class="mt-3 ml-3"> votre champ de panneaux solaires et votre coffret de protection ?</label>
+            <input type="range" class="custom-range" id="customRange1" min="0" max="25">
+
+        </div>
+        <div class="form-group row">
+            <label for="customRange2" class="mt-3 ml-3"> votre coffret de protection et votre tableau électrique ?</label>
+            <input type="range" class="custom-range" id="customRange2" min="0" max="25">
+
+        </div>
+    </div>
+
+    <div class="col mt-3 ml-3">
+        <span class="question">Avez-vous un abonnement triphasé ?</span>
+        <div class="form-group row">
+            <div class="radio col-3">
+                <input type="radio" ngModel name="abonnement" value="oui">
+                <label class="ml-3">Oui</label>
+            </div>
+            <div class="radio col-3">
+                <input type="radio" ngModel name="abonnement" value="non">
+                <label class="ml-3">Non</label>
+            </div>
+            <div class="radio col-3">
+                <input type="radio" ngModel name="abonnement" value="jenesaispas">
+                <label class="ml-3">Je ne sais pas</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col mt-3 ml-3">
+        <span class="question">Souhaitez-vous que l'installation soit faite par un professionnel ?</span>
+        <div class="form-group row">
+            <div class="radio col-4">
+                <input type="radio" ngModel name="professionnel" value="oui">
+                <label class="ml-3">Oui</label>
+            </div>
+            <div class="radio col-4">
+                <input type="radio" ngModel name="professionnel" value="non">
+                <label class="ml-3">Non</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col mt-3 ml-3">
+        <span class="question">Souhaitez-vous stocker votre énergie ?</span>
+        <div class="form-group row">
+            <div class="radio col-4">
+                <input type="radio" ngModel name="stockage" value="oui">
+                <label class="ml-3">Oui</label>
+            </div>
+            <div class="radio col-4">
+                <input type="radio" ngModel name="stockage" value="non">
+                <label class="ml-3">Non</label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="text-center">
+        <button class="btn btn-light" [disabled]="submitted">Valider</button>
+        <!-- <button class="btn btn-secondary ml-2" type="button" (click)="resetUserForm(infoTech)">Annuler</button> -->
+    </div>
+</form>
+
+<div class="text-center mt-3">
+    <a routerLink='/calepinage'><button class="btn btn-light">Continuer</button></a>
+</div>
+
+
+
+<router-outlet></router-outlet>
