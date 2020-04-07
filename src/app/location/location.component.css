@@ -1,0 +1,22 @@
+#map {
+    margin-top: 20px;
+    height: 690px;
+  }
+
+form {
+    font-family: sans-serif;
+    color: #5a5169;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+label {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+button, a {
+  font-family: sans-serif;
+  color: #5a5169;
+  font-size: 20px;
+}

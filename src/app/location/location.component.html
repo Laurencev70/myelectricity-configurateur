@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-6">
+      <form (ngSubmit)="onSubmit(location)" #location="ngForm">
+        <div class="form-group mt-5">
+          <label>VOTRE PROJET</label>
+          <input type="text" class="form-control" id="projet" name="projet" placeholder="Donnez un nom à votre projet"
+            ngModel required width=70%>
+        </div>
+        <div class="form-group mt-5">
+          <label>VOTRE ADRESSE</label>
+          <input type="text" class="form-control" id="adresse" name="adresse" ngModel required width=70%>
+          <!-- <button mat-button (click)="showMap(details.lat, details.lng)">Show Location</button> -->
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-light ml-3 mt-5">Valider</button>
+          <a routerLink='../toit' class="btn btn-light mt-5 ml-3">Continuer</a>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="col-6">
+      <div #map id="map"></div>
+    </div>
+  </div>
+
+</div>
+
+
+<router-outlet></router-outlet>
