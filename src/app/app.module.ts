@@ -14,6 +14,7 @@ import { PlatComponent } from './toit/plat.component';
 import { CalepinageComponent } from './calepinage/calepinage.component';
 import { ConsommationComponent } from './consommation/consommation.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
     CalepinageComponent,
     ConsommationComponent,
     InscriptionComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
