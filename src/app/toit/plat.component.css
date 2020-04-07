@@ -1,0 +1,48 @@
+.title {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #5a5169;
+}
+
+.question {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 20px;
+}
+
+label {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+input[type="range"] {
+    position:relative;
+    margin-left: 1em;
+    margin-right: 2em;
+}
+
+input[type="range"]:after,
+input[type="range"]:before {
+    position: absolute;
+    top: 1em;
+    color: #aaa;
+}
+
+input[type="range"]:before {
+    left:0em;
+    content: attr(min);
+}
+
+input[type="range"]:after {
+    right: 0em;
+    content: attr(max);
+}
