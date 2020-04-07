@@ -13,6 +13,7 @@ import { PenteComponent } from './toit/pente.component';
 import { PlatComponent } from './toit/plat.component';
 import { CalepinageComponent } from './calepinage/calepinage.component';
 import { ConsommationComponent } from './consommation/consommation.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ConsommationComponent } from './consommation/consommation.component';
     PlatComponent,
     CalepinageComponent,
     ConsommationComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
