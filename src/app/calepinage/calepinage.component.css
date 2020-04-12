@@ -84,11 +84,6 @@ label {
       background-color: #201B72;
   }
 
-  #toit {
-    background-color: rgb(236, 218, 195);
-    position: relative;
-    z-index: 1;
-  }
 
 
   button {
@@ -96,3 +91,4 @@ label {
     color: #5a5169;
     font-size: 25px;
   }
+

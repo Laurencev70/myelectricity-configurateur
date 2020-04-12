@@ -58,29 +58,33 @@
 
 </div>
 
+
+<div class="row mt-5 ml-3">
+    <div *ngFor="let panneau of panneaux" [ngClass]="position">{{panneau.position}}</div>  
+</div>
+
+
+
+
+
+
+
+
 <div class="row">
-    <div class="mt-5 ml-3">
-        <div id="toit"></div>
-        <div [ngClass]="position"></div>
+    <div class="col text-center mt-5">
+        <span>Nombre de panneaux :</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center mt-5">
+        <span>Puissance totale :</span>
     </div>
 </div>
 
 
 
-<div class="row">
-    <div class="mt-5 ml-3">
-        <span class="text-center">Nombre de panneaux :</span>
-    </div>
-</div>
-
-<div class="row">
-    <div class="mt-5 ml-3">
-        <span class="text-center">Puissance totale :</span>
-    </div>
-</div>
-
-
-<div class="text-center">
+<div class="text-center mt-5">
     <a routerLink='../consommation'><button type="submit" class="btn btn-light">Valider</button></a>
 </div>
 
