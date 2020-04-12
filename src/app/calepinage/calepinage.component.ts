@@ -17,8 +17,11 @@ export class CalepinageComponent implements OnInit {
   renderedValueCol: string;
   value: number = 0;
 
-  position = 'vertical';
+  panneaux = [{ position: '' }];
+  position = ['vertical', 'horizontal'];
 
+  
+  
 
   constructor() { }
 
@@ -29,23 +32,28 @@ export class CalepinageComponent implements OnInit {
 
   
   toggleMoreLine = () => {
+
     if (this.step + this.value <= this.max) {
       this.value = this.value + this.step;
-      this.renderedValueLine = this.value.toString();
+      this.renderedValueLine = this.value.toString(); 
     }
   };
 
   toggleLessLine = () => {
+    
     if (this.value - this.step >= this.min) {
       this.value = this.value - this.step;
-      this.renderedValueLine = this.value.toString();
+      this.renderedValueLine = this.value.toString(); 
     }
   };
 
   toggleMoreCol = () => {
+    let newPosition = { position: ''};
+
     if (this.step + this.value <= this.max) {
       this.value = this.value + this.step;
       this.renderedValueCol = this.value.toString();
+      this.panneaux.push(newPosition);
     }
   };
 
@@ -53,15 +61,16 @@ export class CalepinageComponent implements OnInit {
     if (this.value - this.step >= this.min) {
       this.value = this.value - this.step;
       this.renderedValueCol = this.value.toString();
+      this.panneaux.pop();
     }
   };
 
   setPositionHor() {
-    this.position = 'horizontal';
+    this.position = ['horizontal'];
   }
   
   setPositionVer() {
-    this.position = 'vertical';
+    this.position = ['vertical'];
   }
 
 }
