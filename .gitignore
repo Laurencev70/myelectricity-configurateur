@@ -44,3 +44,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+src/app/header/.index 2.ts.icloud
+src/app/home/.home.component 2.css.icloud

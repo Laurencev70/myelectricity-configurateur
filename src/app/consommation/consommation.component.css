@@ -1,0 +1,52 @@
+h3 {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-weight: bold;
+    font-size: 35px;    
+}
+
+span {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 25px;
+}
+
+label {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 25px;
+}
+
+
+table {
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+}
+
+caption {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 20px;
+    caption-side: top;
+    text-align: center;
+    font-weight: bold;
+}
+
+td, th {
+    color: #5a5169;
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 20px;
+}
+
+input {
+    margin-left: 5px;
+}
+
+button {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 25px;
+  }
