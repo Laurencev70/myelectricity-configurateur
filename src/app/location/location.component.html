@@ -3,21 +3,27 @@
 <div class="container-fluid">
   <div class="row mt-5">
     <div class="col-6">
-      <form (ngSubmit)="onSubmit(location)" #location="ngForm">
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
         <div class="form-group mt-5">
-          <label>VOTRE PROJET</label>
-          <input type="text" class="form-control" id="projet" name="projet" placeholder="Donnez un nom à votre projet"
-            ngModel required width=70%>
+          <label>Votre Projet</label>
+          <input type="text" class="form-control" formControlName="projet" [ngClass]="{ 'is-invalid': submitted && f.projet.errors }" placeholder="Donnez un nom à votre projet" width=70%>
+          <div *ngIf="submitted && f.projet.errors" class="invalid-feedback">
+            <div *ngIf="f.projet.errors.required">Merci d'indiquer un projet</div>
+          </div>
         </div>
         <div class="form-group mt-5">
-          <label>VOTRE ADRESSE</label>
-          <input type="text" class="form-control" id="adresse" name="adresse" ngModel required width=70%>
+          <label>Votre Adresse</label>
+          <input type="text" class="form-control" formControlName="adresse" [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }" placeholder="Indiquez votre adresse complète" width=70%>
+          <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+            <div *ngIf="f.adresse.errors.required">Merci de renseigner votre adresse</div>
+          </div>
           <!-- <button mat-button (click)="showMap(details.lat, details.lng)">Show Location</button> -->
         </div>
 
         <div class="text-center">
           <button class="btn btn-light ml-3 mt-5">Valider</button>
-          <a routerLink='../toit' class="btn btn-light mt-5 ml-3">Continuer</a>
+          <button class="btn btn-light ml-2 mt-5" type="reset" (click)="onReset()">Annuler  </button>
+          <!-- <a routerLink='../toit' class="btn btn-light mt-5 ml-3">Continuer</a> -->
         </div>
 
       </form>

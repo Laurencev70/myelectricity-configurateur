@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var google: any;
 let map: any;
@@ -22,12 +22,37 @@ export class LocationComponent implements OnInit {
 
   @ViewChild('map', {static: false}) mapElement: ElementRef;
 
+  projectForm: FormGroup;
+  submitted = false;
+  
 
-  constructor(public route: ActivatedRoute) { 
+  constructor(public route: ActivatedRoute, private fb: FormBuilder, private router: Router) { 
     this.initMap(parseInt(this.route.snapshot.paramMap.get('lat'), 0), parseInt(this.route.snapshot.paramMap.get('lng'), 0));
   }
 
   ngOnInit(): void {
+    this.projectForm = this.fb.group({
+      projet: ['', Validators.required],
+      adresse: ['', Validators.required]
+    });
+  }
+
+  get f() { return this.projectForm.controls; }
+
+  onSubmit() {
+    console.log(this.projectForm);
+    this.submitted = true;
+    if  (this.projectForm.invalid) {
+      return;
+    } else {
+      this.router.navigate(['../toit']);
+    }
+    
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.projectForm.reset();
   }
 
   initMap(latitude: any, longitude: any) {
@@ -48,12 +73,6 @@ export class LocationComponent implements OnInit {
     }, (error) => {
       console.log(error);
     }, options);
-  }
-
-  onSubmit(location: NgForm) {
-    console.log(location)
-   
-    
   }
 
 }

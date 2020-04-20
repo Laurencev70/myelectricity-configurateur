@@ -15,8 +15,14 @@ label {
   font-weight: bold;
 }
 
-button, a {
+input {
+  font-size: 25px;
+  height: 60px;
+}
+
+button {
   font-family: sans-serif;
   color: #5a5169;
   font-size: 20px;
+  background-color: #fff3d6;
 }
