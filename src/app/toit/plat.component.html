@@ -50,24 +50,6 @@
         </div>
     </div>
 
-    <div class="col mt-3 ml-3">
-        <span class="question">De quel type de matériaux s'agit-il ?</span>
-        <div class="form-group row">
-            <div class="radio col-3">
-                <input type="radio" ngModel name="materiaux" value="tuiles">
-                <label class="ml-3">Tuiles</label>
-            </div>
-            <div class="radio col-3">
-                <input type="radio" ngModel name="materiaux" value="ardoise">
-                <label class="ml-3">Ardoise</label>
-            </div>
-            <div class="radio col-3">
-                <input type="radio" ngModel name="materiaux" value="bacacier">
-                <label class="ml-3">Bac acier</label>
-            </div>
-        </div>
-    </div>
-
 
     <div class="col mt-3 ml-3">
         <span class="question">Combien d'étage à votre maison ?</span>
@@ -150,13 +132,11 @@
 
     <div class="text-center">
         <button class="btn btn-light" [disabled]="submitted">Valider</button>
+        <a routerLink='/calepinage'><button class="btn btn-light">Continuer</button></a>
         <!-- <button class="btn btn-secondary ml-2" type="button" (click)="resetUserForm(infoTech)">Annuler</button> -->
     </div>
 </form>
 
-<div class="text-center mt-3">
-    <a routerLink='/calepinage'><button class="btn btn-light">Continuer</button></a>
-</div>
 
 
 

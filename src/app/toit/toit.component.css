@@ -1,14 +1,70 @@
 /* Placement boutons sur toits */
-.pente {
+button {
+  width:110px;
+	cursor:pointer;
+	text-transform:capitalize;
+}
+
+#pente {
     position: absolute;
     top: 30%;
     left: 29%;
     transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #00bfb0;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50%;
   }
 
-.plat {
+  button:hover + span {
+    display: block;
+  }
+
+  span.pente {
+    position: absolute;
+    top: 26%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color: #00bfb0;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    border-radius: 10%;
+    padding: 5px 8px;
+  }
+
+
+#plat {
     position: absolute;
     top: 39%;
-    left: 66%;
+    left: 71%;
     transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #00bfb0;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50%;
   }
+
+  span.plat {
+    position: absolute;
+    top: 35%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color: #00bfb0;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    border-radius: 10%;
+    padding: 5px 8px;
+  }
+

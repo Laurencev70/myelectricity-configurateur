@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-toit',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toit.component.css']
 })
 export class ToitComponent implements OnInit {
+  faArrowAltCircleDown = faArrowAltCircleDown;
 
   constructor() { }
 
