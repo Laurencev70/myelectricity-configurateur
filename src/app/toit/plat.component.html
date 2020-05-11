@@ -1,83 +1,94 @@
-<div class="form-group mt-3 ml-3">
-    <h3 class="text-center title">Démarrez votre simulation</h3>
+<div class="modal-header mt-3 ml-3">
+    <h3 class="modal-title">Démarrez votre simulation</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <a routerLink='/toit' aria-hidden="true">
+            <fa-icon [icon]="faTimes"></fa-icon>
+        </a>
+    </button>
 </div>
 
-<form #infoTech="ngForm" (ngSubmit)="onSubmit(infoTech)">
-
+<form [formGroup]="infoTech" (ngSubmit)="onSubmit()">
     <div class="col mt-3 ml-3">
-        <span class="question">Quelles sont les dimensions de votre toit plat ?</span>
+        <span class="question">Quelles sont les dimensions de votre toit en pente ?</span>
         <div class="form-group row">
-            <label for="longueur" class="col-sm-2 col-form-label">Longueur </label>
+            <label class="col-sm-2 col-form-label">Longueur</label>
             <div class="col-sm-10">
-                <input type="number" ngModel name="longueur" id="longueur" class="form-control mt-2" placeholder="Ex: 15m" required
-                    #longueur="ngModel">
-                <div *ngIf="longueur.invalid">
-                    <div style="color:red;">{{ message }}</div>
+                <input type="text" formControlName="dimensionLong" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.dimensionLong.errors }" />
+                <div *ngIf="submitted && f.dimensionLong.errors" class="invalid-feedback">
+                    <div *ngIf="f.dimensionLong.errors.required">Merci d'indiquer la longueur</div>
                 </div>
             </div>
         </div>
         <div class="form-group row">
-            <label for="largeur" class="col-sm-2 col-form-label">Largeur</label>
+            <label class="col-sm-2 col-form-label">Largeur</label>
             <div class="col-sm-10">
-                <input type="number" ngModel name="largeur" id="largeur" class="form-control" placeholder="Ex: 6m" required
-                    #largeur="ngModel">
-                <div *ngIf="largeur.invalid">
-                    <div style="color:red;">{{ message }}</div>
+                <input type="text" formControlName="dimensionLarg" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.dimensionLarg.errors }" />
+                <div *ngIf="submitted && f.dimensionLarg.errors" class="invalid-feedback">
+                    <div *ngIf="f.dimensionLarg.errors.required">Merci d'indiquer la largeur</div>
                 </div>
             </div>
-
-        </div>
+        </div>    
     </div>
-
 
     <div class="col mt-3 ml-3">
         <span class="question">Quelle est l'orientation du toit ?</span>
         <div class="form-group row">
             <div class="radio col-3">
-                <input type="radio" ngModel name="orientation" value="sud">
+                <input type="radio" formControlName="orientation" value="sud"
+                [ngClass]="{ 'is-invalid': submitted && f.orientation.errors }">
                 <label class="ml-3">Sud</label>
             </div>
             <div class="radio col-3">
-
-                <input type="radio" ngModel name="orientation" value="est">
+                <input type="radio" formControlName="orientation" value="est"
+                [ngClass]="{ 'is-invalid': submitted && f.orientation.errors }">
                 <label class="ml-3">Est</label>
             </div>
             <div class="radio col-3">
-
-                <input type="radio" ngModel name="orientation" value="ouest">
+                <input type="radio" formControlName="orientation" value="ouest"
+                [ngClass]="{ 'is-invalid': submitted && f.orientation.errors }">
                 <label class="ml-3">Ouest</label>
+            </div>
+            <div *ngIf="submitted && f.orientation.errors" class="invalid-feedback">
+                <div *ngIf="f.orientation.errors.required">Merci de choisir une orientation</div>
             </div>
         </div>
     </div>
 
-
+    
     <div class="col mt-3 ml-3">
         <span class="question">Combien d'étage à votre maison ?</span>
         <div class="form-group row">
             <div class="radio col-4">
-                <input type="radio" ngModel name="etage" value="pleinpied">
+                <input type="radio" formControlName="etage" value="plainpied"
+                [ngClass]="{ 'is-invalid': submitted && f.etage.errors }">
                 <label class="ml-3">Plain-pied</label>
             </div>
             <div class="radio col-4">
-                <input type="radio" ngModel name="etage" value="unoudeuxetages">
+                <input type="radio" formControlName="etage" value="unoudeuxetages"
+                [ngClass]="{ 'is-invalid': submitted && f.etage.errors }">
                 <label class="ml-3">Un ou deux étages</label>
+            </div>
+            <div *ngIf="submitted && f.etage.errors" class="invalid-feedback">
+                <div *ngIf="f.etage.errors.required">Merci de faire un choix</div>
             </div>
         </div>
     </div>
-
 
     <div class="col mt-3 ml-3">
         <span class="question">Quelle est la distance de câble entre :</span>
         <div class="form-group row">
 
-            <label for="customRange1" class="mt-3 ml-3"> votre champ de panneaux solaires et votre coffret de protection ?</label>
-            <input type="range" class="custom-range" id="customRange1" min="0" max="25">
+            <label class="mt-3 ml-3"> votre champ de panneaux solaires et votre coffret de protection
+                ?</label>
+            <input type="range" formControlName="cablePanCof" class="custom-range" id="customRange1" min="0" max="25">
 
         </div>
         <div class="form-group row">
-            <label for="customRange2" class="mt-3 ml-3"> votre coffret de protection et votre tableau électrique ?</label>
-            <input type="range" class="custom-range" id="customRange2" min="0" max="25">
-
+            <label class="mt-3 ml-3"> votre coffret de protection et votre tableau électrique
+                ?</label>
+            <input type="range" formControlName="cableCofTab" class="custom-range" id="customRange2" min="0" max="25">
         </div>
     </div>
 
@@ -85,30 +96,22 @@
         <span class="question">Avez-vous un abonnement triphasé ?</span>
         <div class="form-group row">
             <div class="radio col-3">
-                <input type="radio" ngModel name="abonnement" value="oui">
+                <input type="radio" formControlName="abonnement" value="oui"
+                [ngClass]="{ 'is-invalid': submitted && f.abonnement.errors }">
                 <label class="ml-3">Oui</label>
             </div>
             <div class="radio col-3">
-                <input type="radio" ngModel name="abonnement" value="non">
+                <input type="radio" formControlName="abonnement" value="non"
+                [ngClass]="{ 'is-invalid': submitted && f.abonnement.errors }">
                 <label class="ml-3">Non</label>
             </div>
             <div class="radio col-3">
-                <input type="radio" ngModel name="abonnement" value="jenesaispas">
+                <input type="radio" formControlName="abonnement" value="jenesaispas"
+                [ngClass]="{ 'is-invalid': submitted && f.abonnement.errors }">
                 <label class="ml-3">Je ne sais pas</label>
             </div>
-        </div>
-    </div>
-
-    <div class="col mt-3 ml-3">
-        <span class="question">Souhaitez-vous que l'installation soit faite par un professionnel ?</span>
-        <div class="form-group row">
-            <div class="radio col-4">
-                <input type="radio" ngModel name="professionnel" value="oui">
-                <label class="ml-3">Oui</label>
-            </div>
-            <div class="radio col-4">
-                <input type="radio" ngModel name="professionnel" value="non">
-                <label class="ml-3">Non</label>
+            <div *ngIf="submitted && f.abonnement.errors" class="invalid-feedback">
+                <div *ngIf="f.abonnement.errors.required">Merci de faire un choix</div>
             </div>
         </div>
     </div>
@@ -117,27 +120,24 @@
         <span class="question">Souhaitez-vous stocker votre énergie ?</span>
         <div class="form-group row">
             <div class="radio col-4">
-                <input type="radio" ngModel name="stockage" value="oui">
+                <input type="radio" formControlName="stockage" value="oui"
+                [ngClass]="{ 'is-invalid': submitted && f.stockage.errors }">
                 <label class="ml-3">Oui</label>
             </div>
             <div class="radio col-4">
-                <input type="radio" ngModel name="stockage" value="non">
+                <input type="radio" formControlName="stockage" value="non"
+                [ngClass]="{ 'is-invalid': submitted && f.stockage.errors }">
                 <label class="ml-3">Non</label>
             </div>
         </div>
     </div>
 
-
-
-
     <div class="text-center">
-        <button class="btn btn-light" [disabled]="submitted">Valider</button>
-        <a routerLink='/calepinage'><button class="btn btn-light">Continuer</button></a>
-        <!-- <button class="btn btn-secondary ml-2" type="button" (click)="resetUserForm(infoTech)">Annuler</button> -->
+        <button class="btn btn-light ml-3 mt-5">Valider</button>
+        <button class="btn btn-light ml-2 mt-5" type="reset" (click)="onReset()">Annuler</button>
     </div>
+
 </form>
-
-
 
 
 <router-outlet></router-outlet>
