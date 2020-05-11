@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   title = 'Bienvenue chez MyElectricity';
-  help = "Besoin d'aide ? Contactez-nous au 01 23 45 67 89";
+  help = "Besoin d'aide ? Contactez-nous au 03 52 74 06 35";
   modaltitle = 'Bonjour !';
   content = 'Vous souhaitez produire de l’électricité “verte” grâce à des panneaux photovoltaïque ? Avec ou sans batterie ?';
   content1 = 'Vous souhaitez poser vous-même votre kit ou le faire installer ?';
