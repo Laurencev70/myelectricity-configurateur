@@ -2,7 +2,6 @@
 button {
   width:110px;
 	cursor:pointer;
-	text-transform:capitalize;
 }
 
 #pente {
@@ -20,6 +19,23 @@ button {
     border-radius: 50%;
   }
 
+#plat {
+    position: absolute;
+    top: 39%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    background-color: #00bfb0;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 50%;
+  }
+
+  /* Texte sur boutons */
   button:hover + span {
     display: block;
   }
@@ -36,22 +52,6 @@ button {
     font-family: sans-serif;
     border-radius: 10%;
     padding: 5px 8px;
-  }
-
-
-#plat {
-    position: absolute;
-    top: 39%;
-    left: 71%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background-color: #00bfb0;
-    border: none;
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    border-radius: 50%;
   }
 
   span.plat {
