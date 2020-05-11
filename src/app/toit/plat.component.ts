@@ -1,32 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { slideInOutAnimation } from '../animations/index';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
-    selector: 'app-plat',
-    templateUrl: './plat.component.html',
-    styleUrls: ['./plat.component.css'],
-    animations: [slideInOutAnimation],
-    host: { '[@slideInOutAnimation]': '' }
-  })
+  selector: 'app-plat',
+  templateUrl: './plat.component.html',
+  styleUrls: ['./plat.component.css'],
+  animations: [slideInOutAnimation],
+  host: { '[@slideInOutAnimation]': '' }
+})
 
-  export class PlatComponent implements OnInit {
+export class PlatComponent implements OnInit {
+  faTimes = faTimes
 
-    submitted= false;
-    message: string;
-    message2: string;
-  
-    constructor() { }
-  
-    ngOnInit(): void {
-    }
+  infoTech: FormGroup;
+  submitted = false;
 
-    onSubmit(infoTech: NgForm) {
-      console.log(infoTech);
-      this.submitted= true;
-      this.message="Ce champs est obligatoire";
-      this.message2="Merci de faire un choix";
-    }
-  
+
+  constructor(private fb: FormBuilder, private router: Router) { }
+
+  ngOnInit(): void {
+    this.infoTech = this.fb.group({
+      dimensionLong: ['', Validators.required],
+      dimensionLarg: ['', Validators.required],
+      orientation: ['', Validators.required],
+      etage: ['', Validators.required],
+      cablePanCof: [''],
+      cableCofTab: [''],
+      abonnement: ['', Validators.required],
+      stockage: ['', Validators.required]
+    })
   }
+
+  get f() { return this.infoTech.controls; }
+
+  onSubmit() {
+    console.log(this.infoTech);
+    this.submitted = true;
+    if (this.infoTech.invalid) {
+      return;
+    } else {
+      this.router.navigate(['../calepinage']);
+    }
+
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.infoTech.reset();
+  }
+
+
+}
