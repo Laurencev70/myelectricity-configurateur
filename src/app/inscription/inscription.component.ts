@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -8,22 +9,38 @@ import { NgForm } from '@angular/forms';
 })
 export class InscriptionComponent implements OnInit {
 
-  Submitted= false;
-  Message: string;
+  registerForm: FormGroup;
+  submitted= false;
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
+    this.registerForm = this.fb.group({
+      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    })
   }
 
-  onSubmit(userForm: NgForm) {
-    console.log(userForm);
-    this.Submitted= true;
-    this.Message="Ce champs est obligatoire"
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+    console.log(this.registerForm);
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    } else {
+      this.router.navigate(['../dashboard']);
+    }
+
   }
 
-  resetUserForm(userForm: NgForm) {
-    userForm.resetForm();
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
   }
 
+
+  
 }

@@ -1,0 +1,36 @@
+h3 {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-weight: bold;
+    font-size: 35px;    
+}
+
+h4 {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+span {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 25px;
+}
+
+label {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 25px;
+}
+
+input {
+    height: 50px;
+}
+
+button {
+    font-family: sans-serif;
+    color: #5a5169;
+    font-size: 25px;
+    background-color: #fff3d6;
+}
