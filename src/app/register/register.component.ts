@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class InscriptionComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted= false;

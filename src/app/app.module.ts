@@ -15,7 +15,7 @@ import { PenteComponent } from './toit/pente.component';
 import { PlatComponent } from './toit/plat.component';
 import { CalepinageComponent } from './calepinage/calepinage.component';
 import { ConsommationComponent } from './consommation/consommation.component';
-import { InscriptionComponent } from './inscription/inscription.component';
+import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
@@ -30,7 +30,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PlatComponent,
     CalepinageComponent,
     ConsommationComponent,
-    InscriptionComponent,
+    RegisterComponent,
     DashboardComponent,
   ],
   imports: [
