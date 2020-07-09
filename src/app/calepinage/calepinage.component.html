@@ -15,7 +15,7 @@
                 <label class="ml-3">Horizontal</label>
             </div>
             <div class="radio col-4">
-                <input (click)="setPositionVer()"type="radio" ngModel name="position" value="vertical">
+                <input (click)="setPositionVer()" type="radio" ngModel name="position" value="vertical">
                 <label class="ml-3">Vertical</label>
             </div>
         </div>
@@ -28,14 +28,14 @@
     <div class="col-4 ml-3 mt-5">
         <span>Nombre de lignes</span>
         <div class="stepper-input stepper__input">
-            <button class="toggle-less" (click)="toggleLessLine()">
+            <button class="toggle-less" [disabled]="nbLine === 0" (click)="line(-1)">
                 <img src="assets/images/minus.svg" [attr.alt]="ariaLabelLess" />
             </button>
             <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite"
                 aria-relevant="all">
-                {{renderedValueLine}}
+                {{nbLine}}
             </div>
-            <button class="toggle-more" (click)="toggleMoreLine()">
+            <button class="toggle-more" (click)="line(1)">
                 <img src="assets/images/plus.svg" [attr.alt]="ariaLabelMore" />
             </button>
         </div>
@@ -43,14 +43,14 @@
     <div class="col-4 ml-3 mt-5">
         <span>Nombre de colonnes</span>
         <div class="stepper-input stepper__input">
-            <button class="toggle-less" (click)="toggleLessCol()">
+            <button class="toggle-less" [disabled]="nbColumn === 0" (click)="column(-1)">
                 <img src="assets/images/minus.svg" [attr.alt]="ariaLabelLess" />
             </button>
             <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite"
                 aria-relevant="all">
-                {{renderedValueCol}}
+                {{nbColumn}}
             </div>
-            <button class="toggle-more" (click)="toggleMoreCol()">
+            <button class="toggle-more" (click)="column(1)">
                 <img src="assets/images/plus.svg" [attr.alt]="ariaLabelMore" />
             </button>
         </div>
@@ -60,11 +60,14 @@
 
 
 <div class="row mt-5 ml-3">
-    <div *ngFor="let panneau of panneaux" [ngClass]="position">{{panneau.position}}</div>  
+    <div id="roofSize">
+        <div *ngFor="let line of lines" class="line">
+            <div *ngFor="let column of columns" class="column">
+                <div [ngClass]="position"></div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
 
 
 
@@ -72,13 +75,13 @@
 
 <div class="row">
     <div class="col text-center mt-5">
-        <span>Nombre de panneaux :</span>
+        <span>Nombre de panneaux : {{nbLine*nbColumn}}</span>
     </div>
 </div>
 
 <div class="row">
     <div class="col text-center mt-5">
-        <span>Puissance totale :</span>
+        <span>Puissance totale : {{nbLine*nbColumn*330}} W</span>
     </div>
 </div>
 
