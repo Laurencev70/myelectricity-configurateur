@@ -8,63 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalepinageComponent implements OnInit {
 
-  step: number = 1;
-  min: number = 0;
-  max: number = 20;
+  
   ariaLabelLess= "Less 1";
   ariaLabelMore= "Plus 1";
-  renderedValueLine: string;
-  renderedValueCol: string;
-  value: number = 0;
+  
 
   panneaux = [{ position: '' }];
   position = ['vertical', 'horizontal'];
+  
+  
 
-  
-  
+  nbLine: number = 0;
+  nbColumn: number = 0;
+
+  lines = [];
+  columns = [];
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.renderedValueLine = this.value.toString();
-    this.renderedValueCol = this.value.toString();
-  }
+  ngOnInit(): void {}
 
   
-  toggleMoreLine = () => {
-
-    if (this.step + this.value <= this.max) {
-      this.value = this.value + this.step;
-      this.renderedValueLine = this.value.toString(); 
-    }
-  };
-
-  toggleLessLine = () => {
-    
-    if (this.value - this.step >= this.min) {
-      this.value = this.value - this.step;
-      this.renderedValueLine = this.value.toString(); 
-    }
-  };
-
-  toggleMoreCol = () => {
-    let newPosition = { position: ''};
-
-    if (this.step + this.value <= this.max) {
-      this.value = this.value + this.step;
-      this.renderedValueCol = this.value.toString();
-      this.panneaux.push(newPosition);
-    }
-  };
-
-  toggleLessCol = () => {
-    if (this.value - this.step >= this.min) {
-      this.value = this.value - this.step;
-      this.renderedValueCol = this.value.toString();
-      this.panneaux.pop();
-    }
-  };
-
   setPositionHor() {
     this.position = ['horizontal'];
   }
@@ -73,5 +37,31 @@ export class CalepinageComponent implements OnInit {
     this.position = ['vertical'];
   }
 
+  line(num) {
+    console.log('line');
+    this.nbLine = this.nbLine + num;
+    this.renduTab('nbLine', this.nbLine);
+  }
+
+  column(num) {
+    console.log('column');
+    this.nbColumn = this.nbColumn + num;
+    this.renduTab('nbColumn', this.nbColumn);
+  }
+  
+
+  renduTab(name, num) {
+    if(name === 'nbLine') {
+      this.lines = [];
+      for (let i = 0; i < num; i++){
+        this.lines.push('line');
+      }
+    } else {
+      this.columns = [];
+      for (let i = 0; i < num; i++){
+        this.columns.push('column');
+      }
+    }  
+  };
 }
 
